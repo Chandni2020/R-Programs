@@ -6,9 +6,9 @@ df <- mtcars
 
 # Nesting.......one way
 
-#result <- arrange(sample_n(filter(df,mpg>20),size=5),desc(mpg))
+result <- arrange(sample_n(filter(df,mpg>20),size=5),desc(mpg))
 
-#print(result)
+print(result)
 
 #multiple assignmnets.......second way.
 
