@@ -1,62 +1,33 @@
-#Data visualization with R-----Scatterplots.......
+#Data Visualization with R,......Histograms....
+
+#install.packages('ggplot2')
+#install.packages('ggplot2movies')
 
 library(ggplot2)
-df <- mtcars
+library(ggplot2movies)
 
-#print(head(mtcars))
+# Data Aesthetics...............
 
-#Data and Aesthetics layer........
+pl <- ggplot(movies,aes(x=rating))
 
+#Geometry layer......
 
-pl <- ggplot(df, aes(x=wt,y=mpg))
+pl2 <- pl + geom_histogram(binwidth = 0.1,color ='red', fill ='pink', alpha=1)
+#aplha is used for transperancy, 0 for transparent and 1 for opaque......
 
-#print(pl + geom_point()) #by keeping blanck, it will return default size..
+pl3 <- pl2 + xlab('Movie rating') + ylab('Count')
 
-#size means to increase the size of data points............
-#print(pl + geom_point(size=5))
+#xlab and ylab is to rename xand y-axis......
 
-#print(pl + geom_point(alpha=0.5,size=5))
-#alpha used for transparency.........
+print(pl3 + ggtitle('MY TITLE'))
 
-#print(pl + geom_point(aes(size=hp)))
+#ggtitle is used and written on the top of plot....
 
-#print(pl + geom_point(aes(size=cyl)))
-#but as the number of cylinders is even, so here to add factor cammand...
+# to have a difference in color according to number of counts, following
+#aes(fill=..count..)command will work.....
 
-#print(pl + geom_point(aes(size=factor(cyl))))
+pl2 <- pl + geom_histogram(binwidth = 0.1,aes(fill=..count..))
 
-#print(pl + geom_point(aes(shape=factor(cyl)),size=5))
-#shape is used to have diffferent shapes for different variables..
-
-#print(pl + geom_point(aes(shape=factor(cyl),color=factor(cyl)),size=5))
-#to put different color in graph
-
-#print(pl + geom_point(aes(shape=factor(cyl)),size=5,color='blue'))
-#to have one color only, command outside aes().....
-
-#pl2 <- pl + geom_point(size=5, color='purple')
-#print(pl2)
-#here hex color codes can be used..google for different colors...
-
-#pl2 <- pl + geom_point(size=5, color='#56ea29')
-#print(pl2)
-
-
-pl2 <- pl + geom_point(aes(size=5, color=hp),size=5)
-#print(pl2)
-#to have higher tolower with different colors........
-
-pl3 <- pl2 + scale_color_gradient(low='blue', high ='red')
+pl3 <- pl2 + xlab('Movie rating') + ylab('Count')
 print(pl3)
-#here used command 'scale_color_gradient'
-
-
-
-
-
-
-
-
-
-
 
