@@ -10,3 +10,4 @@ pl <- ggplot(df,aes(x=factor(cyl),y=mpg))
 #print(pl+geom_boxplot(fill='blue'))
 
 print(pl+geom_boxplot(aes(fill=factor(cyl))) + theme_bw())
+#theme_bw is used for background color
